@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 })
 
 // ROUTES
-app.use(userRoutes)
+app.use('/api/user/', userRoutes)
 
 // LISTEN for requests
 app.listen(process.env.PORT, () => {
