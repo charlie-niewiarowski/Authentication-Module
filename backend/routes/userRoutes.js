@@ -1,11 +1,16 @@
 const express = require('express')
 const { signupUser, loginUser } = require('../controllers/userController')
+const requireAuth = require("../ middleware/requireAuth")
 
 const router = express.Router()
 
-// SIGNUP route
-router.post('/', signupUser)
+// REQUIRE AUTH
+router.use(requireAuth)
 
-router.post('/', loginUser)
+// SIGNUP route
+router.post('/signup', signupUser)
+
+// LOGIN route
+router.post('/login', loginUser)
 
 module.exports = router
